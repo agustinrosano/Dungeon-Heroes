@@ -1,0 +1,79 @@
+.combate-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #232032;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .combate-container h3 {
+    color: #fff;
+    text-align: center;
+  }
+  .cards-container{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding:10px ;
+  }
+  .card {
+    background-color: #3d3a4b;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    color: #fff;
+  }
+  
+  .card h2 {
+    font-size: 1.5em;
+  }
+  
+  .card p {
+    margin: 8px 0;
+  }
+  
+  .abilities-buttons{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
+  
+  .btnHabs {
+    background-color: #7e7d7d;
+    color: #fff;
+    border: none;
+    padding: 8px 16px ;
+    border-radius: 4px;
+    margin-left: 2px;
+    margin-bottom:3px;
+    cursor: pointer;
+  }
+  .btnHabs:hover{
+    background-color: #7a6249;
+  }
+
+  .abilities-buttons button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .button-container button {
+    background-color: #675347;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 10px;
+  }
+  
+  .button-container button:hover {
+    background-color: #514239;
+  }

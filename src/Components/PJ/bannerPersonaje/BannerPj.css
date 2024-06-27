@@ -1,0 +1,43 @@
+.banner-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 150px;
+    background-color: #5a3016;
+    border: 5px solid #aa6235;
+    border-radius: 20px;
+    color: #fff;
+    padding: 10px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Asegura que el contenido esté centrado verticalmente */
+  }
+  
+  .banner-container h2 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  .banner-container p {
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
+  }
+
+.ability-button {
+    background-color: #aa6235;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .ability-button:hover {
+    background-color: #5a3016;
+  }
