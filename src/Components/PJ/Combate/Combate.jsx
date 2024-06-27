@@ -81,7 +81,7 @@ const Combate = ({ mobs }) => {
       const mobDamage = mobs.length > 0 ? mobs[currentMobIndex].attack : 0;
       const playerDefense = selectedCharacter.defense;
       const enemyAction = Math.random() < 0.5 ? 'attack' : 'defend';
-  
+      
       if (enemyAction === 'attack') {
         if (isDefending) {
           const newPlayerHealth = playerHealth - (mobDamage - playerDefense);
