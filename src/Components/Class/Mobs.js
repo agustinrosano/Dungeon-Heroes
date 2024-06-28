@@ -2,11 +2,16 @@ const Mobs = {
   Dungeon1: [
     {
       name: 'Guerrero Esqueleto ',
-      // description: 'Un luchador fuerte y resistente, experto en combate cuerpo a cuerpo.',
-      // abilities: ['Ataque poderoso', 'Defensa férrea', 'Corte brutal'],
+      //description: 'Un luchador fuerte y resistente, experto en combate cuerpo a cuerpo.',
+      //abilities: ['Ataque poderoso', 'Defensa férrea', 'Corte brutal'],
       health: 150,
       attack: 50,
-      defense: 50
+      defense: 50,
+      drop:{
+        tipo:'Consumible',
+        Nombre:'Pocion C',
+        Posicion:'salud',
+      },
     },
     {
       name: 'Mago Esqueleto',
@@ -14,7 +19,12 @@ const Mobs = {
       // abilities: ['Bola de fuego', 'Escudo mágico', 'Rayo arcano'],
       health: 80,
       attack: 70,
-      defense: 30
+      defense: 30,
+      drop:{
+        tipo:'empty',
+        Nombre:'-',
+        Posicion:'-',
+      },
     },
     {
       name: 'Esqueleto Arquero',
@@ -22,7 +32,12 @@ const Mobs = {
       // abilities: ['Flecha precisa', 'Lluvia de flechas', 'Evasión ágil'],
       health: 100,
       attack: 60,
-      defense: 40
+      defense: 40,
+      drop:{
+        tipo:'Equipo',
+        Nombre:'Arco C',
+        Posicion:'weapon',
+      },
     },
     {
       name: 'Necromantico',
@@ -30,7 +45,38 @@ const Mobs = {
       // abilities: ['Ataque sigiloso', 'Esquiva rápida', 'Robo'],
       health: 90,
       attack: 65,
-      defense: 35
+      defense: 35,
+      drop:{
+        tipo:'Consumible',
+        Nombre:'Pocion Mana C',
+        Posicion:'mana',
+      },
+    },
+    {
+      name: 'No-Muerto',
+      // description: 'Un tirador experto, preciso y letal con su arco.',
+      // abilities: ['Flecha precisa', 'Lluvia de flechas', 'Evasión ágil'],
+      health: 300,
+      attack: 60,
+      defense: 40,
+      drop:{
+        tipo:'empty',
+        Nombre:'-',
+        Posicion:'-',
+      },
+    },
+    {
+      name: 'Necromantico',
+      //description: 'Ágil y furtivo, experto en ataques rápidos y en evadir al enemigo.',
+      //abilities: ['Ataque sigiloso', 'Esquiva rápida', 'Robo'],
+      health: 90,
+      attack: 65,
+      defense: 35,
+      drop:{
+        tipo:'Equipo',
+        Nombre:'Espada',
+        Posicion:'weapon',
+      },
     }
   ],
 
@@ -41,7 +87,12 @@ const Mobs = {
       abilities: ['Golpe devastador', 'Muro de carne', 'Grito de guerra'],
       health: 200,
       attack: 70,
-      defense: 60
+      defense: 60,
+      drop:{
+        tipo:'equipo',
+        Nombre:'peto',
+        Posicion:'body',
+      },
     },
     {
       name: 'Chamán Orco',
@@ -49,7 +100,12 @@ const Mobs = {
       abilities: ['Llamas de fuego', 'Escudo de tierra', 'Rayo de tormenta'],
       health: 120,
       attack: 80,
-      defense: 40
+      defense: 40,
+      drop:{
+        tipo:'equipo',
+        Nombre:'peto',
+        Posicion:'body',
+      },
     },
     {
       name: 'Orco Druida',
@@ -57,7 +113,12 @@ const Mobs = {
       abilities: ['Golpe Oso', 'Regeneración', 'Lanzamiento de roca'],
       health: 250,
       attack: 90,
-      defense: 50
+      defense: 50,
+      drop:{
+        tipo:'equipo',
+        Nombre:'peto',
+        Posicion:'body',
+      },
     }
   ],
   
@@ -68,7 +129,12 @@ const Mobs = {
       abilities: ['Aliento de fuego', 'Ala cortante', 'Mordida feroz'],
       health: 300,
       attack: 100,
-      defense: 80
+      defense: 80,
+      drop:{
+        tipo:'equipo',
+        Nombre:'peto',
+        Posicion:'body',
+      },
     },
     {
       name: 'Necromante',
@@ -76,7 +142,12 @@ const Mobs = {
       abilities: ['Invocar esqueleto', 'Toque de la muerte', 'Escudo oscuro'],
       health: 150,
       attack: 90,
-      defense: 40
+      defense: 40,
+      drop:{
+        tipo:'equipo',
+        Nombre:'peto',
+        Posicion:'body',
+      },
     },
     {
       name: 'Guardián de la Tumba',
@@ -84,7 +155,12 @@ const Mobs = {
       abilities: ['Espada maldita', 'Defensa espectral', 'Golpe de sombra'],
       health: 180,
       attack: 70,
-      defense: 60
+      defense: 60,
+      drop:{
+        tipo:'equipo',
+        Nombre:'peto',
+        Posicion:'body',
+      },
     }
   ]
 };

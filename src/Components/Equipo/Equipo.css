@@ -1,4 +1,4 @@
-.inventory-container {
+.equipo-container {
     display: flex;
     color: white;
     flex-direction: column;
@@ -6,7 +6,7 @@
     margin: 20px;
   }
   
-  .inventory-card {
+  .equipo-card {
     width: 300px;
     padding: 20px;
     border: 1px solid #727070;
@@ -15,13 +15,13 @@
     background-color: #555454;
   }
   
-  .inventory-grid {
+  .equipo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
   }
   
-  .inventory-slot {
+  .equipo-slot {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,6 +31,6 @@
     background-color: #7b532ed7;
   }
   
-  .inventory-slot span {
+  .equipo-slot span {
     margin: 5px 0;
   }

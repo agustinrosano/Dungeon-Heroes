@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import './Combate.css';
+import Inventario from '../../Inventario/Inventario.jsx';
+import EquipoComponent from '../../Equipo/Equipo.jsx';
 
 const Combate = ({ mobs }) => {
   const selectedCharacter = useSelector((state) => state.character.selectedCharacter);
@@ -13,6 +15,7 @@ const Combate = ({ mobs }) => {
   const [isDefending, setIsDefending] = useState(false);
   const [mobDefending, setMobDefending] = useState(false);
 
+//TURNO DEL EL TIEMPO DE RESPUESTA PARA QUE SE EJECUTE EL MOVIMIENTO DEL MOB 
   useEffect(() => {
     if (turn === 'mob' && !combatEnded) {
       const timeout = setTimeout(() => {
@@ -32,6 +35,7 @@ const Combate = ({ mobs }) => {
     //setMobDefending(false); // Reinicia el estado de defensa del mob
   }, [currentMobIndex, mobs]);
 
+  // MANEJO DE LAS HABILIDADES
   const handleAbilityClick = (abilityName) => {
     if (turn === 'player' && !combatEnded) {
       setNarration(`Usando habilidad: ${abilityName.NameHab}`);
@@ -50,7 +54,7 @@ const Combate = ({ mobs }) => {
       setTurn('mob');
     }
   };
-
+//ATTAQUE DEL HEROE CUANDO MOBDEFEDING ESTA EN TRUE PEGA MENOS
   const handleAttack = () => {
     if (turn === 'player' && !combatEnded) {
       const damage = selectedCharacter.attack;
@@ -68,6 +72,7 @@ const Combate = ({ mobs }) => {
     }
   };
 
+  //NUESTRA DEFENSA SETEAeL iSdEFENDING EN TRUE QUE HACE QUE EL ATACANTE GOLPE MENOS CUANDO ESTE EN TRUE ISDEFENDING
   const handleDefend = () => {
     if (turn === 'player' && !combatEnded) {
       setIsDefending(true);
@@ -76,6 +81,7 @@ const Combate = ({ mobs }) => {
     }
   };
 
+//CREANDO EL TURNO DEL ENEMIGO ACA ESTA SU ATAQUE Y SU DEFENSA
   const handleEnemyTurn = () => {
     if (turn === 'mob' && !combatEnded) {
       const mobDamage = mobs.length > 0 ? mobs[currentMobIndex].attack : 0;
@@ -102,8 +108,10 @@ const Combate = ({ mobs }) => {
       setTurn('player');
     }
   };
-  console.log(mobDefending)
+  //console.log(mobDefending)
 
+
+  //AL GANAR PASAR AL SIGUIENTE 
   const handleNext = () => {
     if (currentMobIndex < mobs.length - 1) {
       setCurrentMobIndex(currentMobIndex + 1);
@@ -113,6 +121,7 @@ const Combate = ({ mobs }) => {
     }
   };
 
+  //ACA PODEMOS USARLO PAR RESETEAR EL MOB O SALIR DE LA MAZMORRA
   const handleRestart = () => {
     setPlayerHealth(selectedCharacter.health);
     setCurrentMobIndex(0);
@@ -121,6 +130,7 @@ const Combate = ({ mobs }) => {
     setNarration('¡La batalla comienza!');
   };
 
+//useEffect que esta a la espera de la Derrota
   useEffect(() => {
     if (playerHealth <= 0 && !combatEnded) {
       setCombatEnded(true);
@@ -128,13 +138,25 @@ const Combate = ({ mobs }) => {
     }
   }, [playerHealth, combatEnded]);
 
+  //useEffect que esta a la espera de la Victoria
+  const [drop,setDrop] = useState({})
   useEffect(() => {
     if (mobHealth <= 0 && !combatEnded) {
       setCombatEnded(true);
       setNarration('¡VICTORIA!');
+
+     if(mobs.length > 0 ? mobs[currentMobIndex].drop.tipo != 'empty' : 0){
+      setDrop( mobs[currentMobIndex].drop)
+     }else{
+      setDrop('')
+     }
+     
     }
   }, [mobHealth, combatEnded]);
 
+
+
+  console.log(drop)
 
   return (
     <div className="combate-container">
@@ -172,6 +194,11 @@ const Combate = ({ mobs }) => {
       {narration === '¡VICTORIA!' && (
         <button className="action-button" onClick={handleNext}>Siguiente Turno</button>
       )}
+    <div style={{display:'flex', justifyContent:'center'}}>
+          <EquipoComponent/> 
+          <Inventario  drop={drop}/>
+    </div>
+      
     </div>
   );
 };
