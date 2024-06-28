@@ -49,7 +49,7 @@ const Combate = ({ mobs }) => {
       } else if (abilityName.curar) {
         const newPlayerHealth = playerHealth + abilityName.curar;
         setPlayerHealth(newPlayerHealth > 0 ? newPlayerHealth : 0);
-        console.log('Habilidad de curación');
+        //console.log('Habilidad de curación');
       }
       setTurn('mob');
     }

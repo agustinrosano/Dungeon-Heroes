@@ -30,7 +30,14 @@ const Bosses = [
       health: 4000,
       attack: 65,
       defense: 35
-    }
+    },{
+      name: 'Kan Evil',
+      description: 'Un tirador experto, preciso y letal con su arco.',
+      abilities: ['Flecha precisa', 'Lluvia de flechas', 'Evasión ágil'],
+      health: 3000,
+      attack: 60,
+      defense: 40
+    },
   ];
   
   export default Bosses;

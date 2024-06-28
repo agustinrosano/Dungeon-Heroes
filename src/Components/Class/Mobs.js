@@ -17,7 +17,7 @@ const Mobs = {
       name: 'Mago Esqueleto',
       // description: 'Un maestro de la magia, capaz de lanzar poderosos hechizos desde la distancia.',
       // abilities: ['Bola de fuego', 'Escudo mágico', 'Rayo arcano'],
-      health: 80,
+      health: 180,
       attack: 70,
       defense: 30,
       drop:{
@@ -30,7 +30,7 @@ const Mobs = {
       name: 'Esqueleto Arquero',
       // description: 'Un tirador experto, preciso y letal con su arco.',
       // abilities: ['Flecha precisa', 'Lluvia de flechas', 'Evasión ágil'],
-      health: 100,
+      health: 350,
       attack: 60,
       defense: 40,
       drop:{
@@ -43,7 +43,7 @@ const Mobs = {
       name: 'Necromantico',
       // description: 'Ágil y furtivo, experto en ataques rápidos y en evadir al enemigo.',
       // abilities: ['Ataque sigiloso', 'Esquiva rápida', 'Robo'],
-      health: 90,
+      health: 390,
       attack: 65,
       defense: 35,
       drop:{
@@ -79,7 +79,6 @@ const Mobs = {
       },
     }
   ],
-
   Dungeon2: [
     {
       name: 'Orco Guerrero',
