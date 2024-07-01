@@ -17,6 +17,7 @@ const playerClass = [
         }
         },
     health: 150,
+    mana:100,
     attack: 50,
     defense: 50
   },
@@ -38,6 +39,7 @@ const playerClass = [
           }
           },
       health: 150,
+      mana:100,
       attack: 50,
       defense: 50
     },
@@ -59,6 +61,7 @@ const playerClass = [
           }
         },
       health: 80,
+      mana:100,
       attack: 70,
       defense: 30
     },
@@ -80,6 +83,7 @@ const playerClass = [
           }
         },
       health: 100,
+      mana:100,
       attack: 60,
       defense: 40
     },
@@ -101,6 +105,7 @@ const playerClass = [
           }
         },
       health: 90,
+      mana:100,
       attack: 65,
       defense: 35
     }

@@ -45,6 +45,7 @@ const SeleccionDeClasse = () => {
                 </ul>
               </div>
               <p>Salud: {playerClass.health}</p>
+              <p>Mana: {playerClass.mana}</p>
               <p>Ataque: {playerClass.attack}</p>
               <p>Defensa: {playerClass.defense}</p>
             </div>

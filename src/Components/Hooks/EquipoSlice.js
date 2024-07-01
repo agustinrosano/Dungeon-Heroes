@@ -8,7 +8,7 @@ const initialState = {
     weapon: null,
     weapon2: null,
     shield: null,
-    bow:null,
+    bow: null,
   }
 };
 
@@ -17,12 +17,20 @@ const equipoSlice = createSlice({
   initialState,
   reducers: {
     equipItem: (state, action) => {
-      const { slot, item } = action.payload;
-      state.equipo[slot] = item;
+      const { item } = action.payload;
+      if (state.equipo.hasOwnProperty(item.Posicion)) {
+        state.equipo[item.Posicion] = item.Nombre;
+      } else {
+        console.warn(`Unknown position: ${item.Posicion}`);
+      }
     },
     unequipItem: (state, action) => {
       const { slot } = action.payload;
-      state.equipo[slot] = null;
+      if (state.equipo.hasOwnProperty(slot)) {
+        state.equipo[slot] = null;
+      } else {
+        console.warn(`Unknown slot: ${slot}`);
+      }
     },
     clearEquipo: (state) => {
       state.equipo = initialState.equipo;

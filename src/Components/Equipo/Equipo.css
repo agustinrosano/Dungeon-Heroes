@@ -25,12 +25,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  
+  .equipo-slot p {
+    margin-bottom:2px ;
+  }
+  .equipo-slot span {
+    text-align: center;
     padding: 10px;
     border: 2px solid #5f270a;
     border-radius: 4px;
     background-color: #7b532ed7;
-  }
-  
-  .equipo-slot span {
-    margin: 5px 0;
+    height: 40px;
+    width: 60px;
   }

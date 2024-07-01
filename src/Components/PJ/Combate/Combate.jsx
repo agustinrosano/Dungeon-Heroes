@@ -15,7 +15,14 @@ const Combate = ({ mobs }) => {
   const [isDefending, setIsDefending] = useState(false);
   const [mobDefending, setMobDefending] = useState(false);
 
+
+//console.log(selectedCharacter)
 //TURNO DEL EL TIEMPO DE RESPUESTA PARA QUE SE EJECUTE EL MOVIMIENTO DEL MOB 
+useEffect(() => {
+  setPlayerHealth(selectedCharacter ? selectedCharacter.health : 0);
+  setTurn('mob');
+}, [selectedCharacter]);
+
   useEffect(() => {
     if (turn === 'mob' && !combatEnded) {
       const timeout = setTimeout(() => {
@@ -49,7 +56,6 @@ const Combate = ({ mobs }) => {
       } else if (abilityName.curar) {
         const newPlayerHealth = playerHealth + abilityName.curar;
         setPlayerHealth(newPlayerHealth > 0 ? newPlayerHealth : 0);
-        //console.log('Habilidad de curación');
       }
       setTurn('mob');
     }
@@ -165,6 +171,9 @@ const Combate = ({ mobs }) => {
         <div className="card player-card">
           <h2>{selectedCharacter.name}</h2>
           <p>Salud: {playerHealth}</p>
+          <p>Mana: {selectedCharacter.mana}</p>
+          <p>Attack: {selectedCharacter.attack}</p>
+          <p>Defense: {selectedCharacter.defense}</p>
           <button className='btnHabs' onClick={handleAttack} disabled={turn !== 'player' || combatEnded}>
             Atacar
           </button>

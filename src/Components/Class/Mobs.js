@@ -11,6 +11,7 @@ const Mobs = {
         tipo:'Consumible',
         Nombre:'Pocion C',
         Posicion:'salud',
+        mas:50,
       },
     },
     {
@@ -21,9 +22,10 @@ const Mobs = {
       attack: 70,
       defense: 30,
       drop:{
-        tipo:'empty',
-        Nombre:'-',
-        Posicion:'-',
+        tipo:'Equipo',
+        Nombre:'Chaleco',
+        Posicion:'body',
+        mas:30,
       },
     },
     {
@@ -36,7 +38,8 @@ const Mobs = {
       drop:{
         tipo:'Equipo',
         Nombre:'Arco C',
-        Posicion:'weapon',
+        Posicion:'bow',
+        mas:30,
       },
     },
     {
@@ -50,6 +53,7 @@ const Mobs = {
         tipo:'Consumible',
         Nombre:'Pocion Mana C',
         Posicion:'mana',
+        mas:50,
       },
     },
     {
@@ -74,8 +78,9 @@ const Mobs = {
       defense: 35,
       drop:{
         tipo:'Equipo',
-        Nombre:'Espada',
+        Nombre:'Espada Larga',
         Posicion:'weapon',
+        mas:30,
       },
     }
   ],
