@@ -1,3 +1,5 @@
+import img1 from '../assets/Personajes/cabelleroOscuro.png'
+import img2 from '../assets/Personajes/mage.jpg'
 const playerClass = [
   {
     name: 'Paladin',
@@ -13,9 +15,10 @@ const playerClass = [
         },
         CorteBrutal:{
           NameHab:'Castigo Divino',
-          attack:200
+          attack:800
         }
         },
+    img:img1,
     health: 150,
     mana:100,
     attack: 50,
@@ -38,6 +41,7 @@ const playerClass = [
             attack:100
           }
           },
+      img:img1,
       health: 150,
       mana:100,
       attack: 50,
@@ -60,8 +64,9 @@ const playerClass = [
           attack:100
           }
         },
-      health: 80,
-      mana:100,
+      img:img2,
+      health: 180,
+      mana:200,
       attack: 70,
       defense: 30
     },
@@ -82,6 +87,7 @@ const playerClass = [
           attack:100
           }
         },
+      img:img1,
       health: 100,
       mana:100,
       attack: 60,
@@ -104,6 +110,7 @@ const playerClass = [
           attack:100
           }
         },
+      img:img1,
       health: 90,
       mana:100,
       attack: 65,

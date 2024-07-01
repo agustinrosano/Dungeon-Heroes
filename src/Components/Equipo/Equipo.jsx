@@ -7,13 +7,13 @@ const EquipoComponent = () => {
   const dispatch = useDispatch();
   const equipo = useSelector((state) => state.equipo.equipo);
   const [displayedEquipo, setDisplayedEquipo] = useState(equipo);
-console.log(equipo)
+  //console.log(equipo)
 
   useEffect(() => {
     setDisplayedEquipo(equipo);
   }, [equipo]);
 
-  console.log(displayedEquipo)
+  //console.log(displayedEquipo)
   const handleEquipItem = (slot, item) => {
     dispatch(equipItem({ slot, item }));
   };
@@ -36,6 +36,7 @@ console.log(equipo)
             <div key={slot} className="equipo-slot">
               <p>{slot}</p>
               <span>
+                  <button> - </button>
                 {displayedEquipo[slot] || 'Vacío'}
               </span>
               {/* <button onClick={() => handleEquipItem(slot, { name: 'Nuevo objeto' })}>Equipar</button>

@@ -32,8 +32,8 @@ const SeleccionDeClasse = () => {
               key={index}
               onClick={() => handleSelect(playerClass)}
             >
+              <img src={playerClass.img} alt="" srcset="" />
               <h2>{playerClass.name}</h2>
-              <p>{playerClass.description}</p>
               <div>
                 <h3>Habilidades:</h3>
                 <ul>

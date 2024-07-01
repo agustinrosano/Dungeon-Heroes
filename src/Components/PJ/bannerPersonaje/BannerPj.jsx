@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import './BannerPj.css';
+import EquipoComponent from '../../Equipo/Equipo';
+import InventoryComponent from '../../Inventario/Inventario';
 
 export const BannerPj = () => {
 
@@ -23,6 +25,7 @@ export const BannerPj = () => {
       <p>Salud: {selectedCharacter.health}</p>
       <p>Ataque: {selectedCharacter.attack}</p>
       <p>Defensa: {selectedCharacter.defense}</p>
+     
     </div>
   );
 };

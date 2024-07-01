@@ -31,3 +31,7 @@
     margin: 0;
     font-size: 1.2em;
   }
+  .container-bag{
+    display: flex;
+    justify-content: center;
+  }

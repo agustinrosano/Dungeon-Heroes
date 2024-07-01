@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 import './Combate.css';
 import Inventario from '../../Inventario/Inventario.jsx';
 import EquipoComponent from '../../Equipo/Equipo.jsx';
+import { useNavigate } from 'react-router-dom';
 
-const Combate = ({ mobs }) => {
+const Combate = ({ mobs, onDungeonSelect }) => {
   const selectedCharacter = useSelector((state) => state.character.selectedCharacter);
   const [playerHealth, setPlayerHealth] = useState(selectedCharacter ? selectedCharacter.health : 0);
   const [currentMobIndex, setCurrentMobIndex] = useState(0);
@@ -14,14 +15,13 @@ const Combate = ({ mobs }) => {
   const [combatEnded, setCombatEnded] = useState(false);
   const [isDefending, setIsDefending] = useState(false);
   const [mobDefending, setMobDefending] = useState(false);
+  const [showDungeonSelectButton, setShowDungeonSelectButton] = useState(false);
+  const navigate = useNavigate();
 
-
-//console.log(selectedCharacter)
-//TURNO DEL EL TIEMPO DE RESPUESTA PARA QUE SE EJECUTE EL MOVIMIENTO DEL MOB 
-useEffect(() => {
-  setPlayerHealth(selectedCharacter ? selectedCharacter.health : 0);
-  setTurn('mob');
-}, [selectedCharacter]);
+  useEffect(() => {
+    setPlayerHealth(selectedCharacter ? selectedCharacter.health : 0);
+    setTurn('mob');
+  }, [selectedCharacter]);
 
   useEffect(() => {
     if (turn === 'mob' && !combatEnded) {
@@ -38,11 +38,9 @@ useEffect(() => {
     setCombatEnded(false);
     setTurn('player');
     setNarration('¡La batalla comienza!');
-    setIsDefending(false); // Reinicia el estado de defensa del jugador
-    //setMobDefending(false); // Reinicia el estado de defensa del mob
+    setIsDefending(false);
   }, [currentMobIndex, mobs]);
 
-  // MANEJO DE LAS HABILIDADES
   const handleAbilityClick = (abilityName) => {
     if (turn === 'player' && !combatEnded) {
       setNarration(`Usando habilidad: ${abilityName.NameHab}`);
@@ -51,7 +49,6 @@ useEffect(() => {
         const newMobHealth = mobHealth - damage;
         setMobHealth(newMobHealth > 0 ? newMobHealth : 0);
       } else if (abilityName.defense) {
-        // Aquí podrías implementar lógica para aumentar la defensa del jugador
         console.log('Habilidad de defensa');
       } else if (abilityName.curar) {
         const newPlayerHealth = playerHealth + abilityName.curar;
@@ -60,7 +57,7 @@ useEffect(() => {
       setTurn('mob');
     }
   };
-//ATTAQUE DEL HEROE CUANDO MOBDEFEDING ESTA EN TRUE PEGA MENOS
+
   const handleAttack = () => {
     if (turn === 'player' && !combatEnded) {
       const damage = selectedCharacter.attack;
@@ -78,7 +75,6 @@ useEffect(() => {
     }
   };
 
-  //NUESTRA DEFENSA SETEAeL iSdEFENDING EN TRUE QUE HACE QUE EL ATACANTE GOLPE MENOS CUANDO ESTE EN TRUE ISDEFENDING
   const handleDefend = () => {
     if (turn === 'player' && !combatEnded) {
       setIsDefending(true);
@@ -87,7 +83,6 @@ useEffect(() => {
     }
   };
 
-//CREANDO EL TURNO DEL ENEMIGO ACA ESTA SU ATAQUE Y SU DEFENSA
   const handleEnemyTurn = () => {
     if (turn === 'mob' && !combatEnded) {
       const mobDamage = mobs.length > 0 ? mobs[currentMobIndex].attack : 0;
@@ -105,38 +100,39 @@ useEffect(() => {
           setPlayerHealth(newPlayerHealth > 0 ? newPlayerHealth : 0);
           setNarration(`El enemigo te atacó y te hizo ${mobDamage} puntos de daño.`);
         }
-        setMobDefending(false); // Reinicia el estado de defensa del enemigo
+        setMobDefending(false);
       } else if (enemyAction === 'defend') {
-        setMobDefending(true); // Activa la defensa del enemigo
+        setMobDefending(true);
         setNarration(`El enemigo se defiende.`);
       }
   
       setTurn('player');
     }
   };
-  //console.log(mobDefending)
 
-
-  //AL GANAR PASAR AL SIGUIENTE 
   const handleNext = () => {
     if (currentMobIndex < mobs.length - 1) {
+      console.log(currentMobIndex < mobs.length - 1,'test')
       setCurrentMobIndex(currentMobIndex + 1);
     } else {
       setCombatEnded(true);
-      setNarration('¡VICTORIA!');
+      setNarration('¡No quedan Mobs!');
+      setShowDungeonSelectButton(true);
+     
     }
   };
 
-  //ACA PODEMOS USARLO PAR RESETEAR EL MOB O SALIR DE LA MAZMORRA
+  //console.log(currentMobIndex,'test2')
+
   const handleRestart = () => {
     setPlayerHealth(selectedCharacter.health);
     setCurrentMobIndex(0);
     setCombatEnded(false);
     setTurn('player');
     setNarration('¡La batalla comienza!');
+    setShowDungeonSelectButton(false);
   };
 
-//useEffect que esta a la espera de la Derrota
   useEffect(() => {
     if (playerHealth <= 0 && !combatEnded) {
       setCombatEnded(true);
@@ -144,31 +140,37 @@ useEffect(() => {
     }
   }, [playerHealth, combatEnded]);
 
-  //useEffect que esta a la espera de la Victoria
-  const [drop,setDrop] = useState({})
+  const [drop, setDrop] = useState({});
   useEffect(() => {
     if (mobHealth <= 0 && !combatEnded) {
       setCombatEnded(true);
       setNarration('¡VICTORIA!');
-
-     if(mobs.length > 0 ? mobs[currentMobIndex].drop.tipo != 'empty' : 0){
-      setDrop( mobs[currentMobIndex].drop)
-     }else{
-      setDrop('')
-     }
-     
+      if (mobs.length > 0 ? mobs[currentMobIndex].drop.tipo !== 'empty' : 0) {
+        setDrop(mobs[currentMobIndex].drop);
+      } else {
+        setDrop('');
+      }
     }
   }, [mobHealth, combatEnded]);
 
+  //console.log(showDungeonSelectButton)
 
+  const handleDungeonSelect = () => {
+    console.log('test')
+      if (showDungeonSelectButton === true){
+        console.log(showDungeonSelectButton)
+        navigate('/mapa');
+      }else{
 
-  console.log(drop)
+      }
+  }
 
   return (
     <div className="combate-container">
       <h3 className="narration">{narration}</h3>
       <div className="cards-container">
         <div className="card player-card">
+          <img src={selectedCharacter.img} alt="" srcset="" />
           <h2>{selectedCharacter.name}</h2>
           <p>Salud: {playerHealth}</p>
           <p>Mana: {selectedCharacter.mana}</p>
@@ -203,6 +205,11 @@ useEffect(() => {
       {narration === '¡VICTORIA!' && (
         <button className="action-button" onClick={handleNext}>Siguiente Turno</button>
       )}
+     {showDungeonSelectButton && (
+        <button className="action-button" onClick={handleDungeonSelect}>Seleccionar Mazmorra</button>
+      )}
+
+
     <div style={{display:'flex', justifyContent:'center'}}>
           <EquipoComponent/> 
           <Inventario  drop={drop}/>
@@ -212,4 +219,4 @@ useEffect(() => {
   );
 };
 
-export default Combate;
+export default Combate; 

@@ -29,19 +29,21 @@ const InventoryComponent = ({ drop }) => {
   };
 
 
-  const handleEquipItem = (item) => {
-    console.log(item)
+  const handleEquipItem = (item,index) => {
+    //console.log(item)
     if(item.tipo === 'Consumible'){
         //console.log(item)
         if(item.Posicion === 'salud'){
             console.log('salud')
             dispatch(modifyAttribute({ attribute: 'health', value: item.mas }));
-            handleEmptySlot(item)
+            console.log(index)
+            handleEmptySlot(index)
 
         }else{
-            console.log('mana')
-            console.log(selectedCharacter)
+              console.log('mana')
+            //console.log(selectedCharacter)
             dispatch(modifyAttribute({ attribute: 'mana', value: item.mas }));
+            handleEmptySlot(index)
         }
     } else {
       
@@ -50,39 +52,45 @@ const InventoryComponent = ({ drop }) => {
    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       if (item.Posicion === 'body') {
-        console.log('test body')
-        console.log(item)
+        //console.log('test body')
+        //console.log(item)
         dispatch(modifyAttribute({ attribute: 'defense', value: item.mas}));
         dispatch(equipItem({item}))
+        handleEmptySlot(index)
       } else if (item.Posicion === 'weapon') {
-      console.log('weapon')
+     
         dispatch(modifyAttribute({ attribute: 'attack', value: item.mas }));
         dispatch(equipItem({item}))
+        handleEmptySlot(index)
 
       } else if (item.Posicion === 'weapon2') {
      
         dispatch(modifyAttribute({ attribute: 'attack', value: item.mas }));
         dispatch(equipItem({item}))
+        handleEmptySlot(index)
 
       }else if (item.Posicion === 'head') {
 
         dispatch(modifyAttribute({ attribute: 'defense', value: item.mas }));
         dispatch(equipItem({item}))
+        handleEmptySlot(index)
 
       }else if (item.Posicion === 'legs') {
       
         dispatch(modifyAttribute({ attribute: 'attack', value: item.mas }));
         dispatch(equipItem({item}))
+        handleEmptySlot(index)
 
       }else if (item.Posicion === 'shield') {
      
         dispatch(modifyAttribute({ attribute: 'attack', value: item.mas }));
         dispatch(equipItem({item}))
+        handleEmptySlot(index)
 
       }else if (item.Posicion === 'bow') {
-     
           dispatch(modifyAttribute({ attribute: 'attack', value: item.mas }));
           dispatch(equipItem({item}))
+          handleEmptySlot(index)
         }
     }
   };
@@ -98,7 +106,7 @@ const InventoryComponent = ({ drop }) => {
       <div className="inventory-grid">
         {inventory.map((item, index) => (
           <div key={index} className="inventory-slot">
-            <button onClick={()=>handleEquipItem(item)} className='span'>{item && item.Nombre ? item.Nombre : 'Vacío'}</button>
+            <button onClick={()=>handleEquipItem(item, index)} className='span'>{item && item.Nombre ? item.Nombre : 'Vacío'}</button>
             {/* <button onClick={() => handleEmptySlot(`slot${index + 1}`)}>Eliminar Objeto</button> */}
           </div>
         ))}

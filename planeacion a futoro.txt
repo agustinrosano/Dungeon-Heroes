@@ -1,5 +1,10 @@
-//inventario ----  esta hecho -----
-//Drop de mobs y bosses
-//mana o estamina  y que las habilidades lo gasten  o por turnos o un cd
-//subida de niveles en personajes, segun el level limite de dungeon 
-//subida de niveles en personajes, segun el level limite de dungeon 
+// inventario ----  esta hecho -----
+// inventario eliminar por uno
+//
+// equipacion quitar y eliminar ( mostrar cantidad de buff que te da cada uno ) 
+//consumo de habilidades el mana
+//
+// Drop de mobs y bosses
+// mana o estamina  y que las habilidades lo gasten  o por turnos o un cd
+// subida de niveles en personajes, segun el level limite de dungeon 
+// subida de niveles en personajes, segun el level limite de dungeon 

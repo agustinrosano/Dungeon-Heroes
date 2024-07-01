@@ -1,0 +1,29 @@
+.card-pj {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    width: 300px;
+    margin: 16px auto;
+    background-color:#555454;
+    color: white;
+  }
+  
+  .character-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .abilities-container {
+    display: flex;
+    margin-top:5px;
+    text-align: left;
+  }
+  
+  .ability {
+    border-top: 1px solid #ddd;
+    padding-top: 8px;
+    margin-top: 5px;
+  }

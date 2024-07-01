@@ -4,6 +4,9 @@ import map1 from '../assets/map1.jpg'
 import './Map.css'
 import { useSelector } from 'react-redux';
 import { BannerPj } from '../PJ/bannerPersonaje/BannerPj';
+import InventoryComponent from '../Inventario/Inventario';
+import EquipoComponent from '../Equipo/Equipo';
+import CardPj from '../PJ/cardPj/CardPj';
 
 export const Map = () => {
     const navigate = useNavigate();
@@ -30,7 +33,11 @@ export const Map = () => {
             </div>
           </div>
         </div>
-      <BannerPj/>
+      <div className='container-bag'> 
+        <CardPj/> 
+        <EquipoComponent/> 
+        <InventoryComponent/>
+      </div>
       </>
     );
   };
