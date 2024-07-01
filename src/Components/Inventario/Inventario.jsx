@@ -31,7 +31,7 @@ const InventoryComponent = ({ drop }) => {
       <div className="inventory-grid">
         {inventory.map((item, index) => (
           <div key={index} className="inventory-slot">
-            <span>{item && item.Nombre ? item.Nombre : 'Vacío'}</span>
+            <button className='span'>{item && item.Nombre ? item.Nombre : 'Vacío'}</button>
 
             {/* <button onClick={() => handleEmptySlot(`slot${index + 1}`)}>Eliminar Objeto</button> */}
           </div>
