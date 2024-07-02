@@ -96,6 +96,7 @@ const Mobs = {
         tipo:'equipo',
         Nombre:'peto',
         Posicion:'body',
+        mas:30,
       },
     },
     {
@@ -109,6 +110,7 @@ const Mobs = {
         tipo:'equipo',
         Nombre:'peto',
         Posicion:'body',
+        mas:30,
       },
     },
     {
@@ -122,6 +124,7 @@ const Mobs = {
         tipo:'equipo',
         Nombre:'peto',
         Posicion:'body',
+        mas:30,
       },
     }
   ],
@@ -138,6 +141,7 @@ const Mobs = {
         tipo:'equipo',
         Nombre:'peto',
         Posicion:'body',
+        mas:30,
       },
     },
     {
@@ -151,6 +155,7 @@ const Mobs = {
         tipo:'equipo',
         Nombre:'peto',
         Posicion:'body',
+        mas:30,
       },
     },
     {
@@ -164,6 +169,7 @@ const Mobs = {
         tipo:'equipo',
         Nombre:'peto',
         Posicion:'body',
+        mas:30,
       },
     }
   ]
