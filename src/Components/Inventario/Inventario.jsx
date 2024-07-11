@@ -11,16 +11,18 @@ const InventoryComponent = ({ drop }) => {
   const inventory = useSelector((state) => state.inventory.inventory);
   const equipo = useSelector((state) => state.equipo.equipo);
   const selectedCharacter = useSelector((state) => state.character.selectedCharacter);
-  //console.log(inventory)
+  console.log(inventory)
 
   useEffect(() => {
     if (drop) {
+      console.log('test',drop)
       dispatch(addItemToSlot({ item: drop }));
     }
   },[drop]);
 
   // Vaciar el slot 
   const handleEmptySlot = (slot) => {
+    console.log('test')
     dispatch(emptySlot({ slot }));
   }; 
 
@@ -30,17 +32,24 @@ const InventoryComponent = ({ drop }) => {
 
 
   const handleEquipItem = (item,index) => {
-    //console.log(item)
+
+    console.log('test')
+
+      if (!item) {
+          console.log('No hay ningún item en esta posición');
+          return; // Salir de la función si no hay item
+        }
+
     if(item.tipo === 'Consumible'){
         //console.log(item)
         if(item.Posicion === 'salud'){
-            console.log('salud')
+            //console.log('salud')
             dispatch(modifyAttribute({ attribute: 'health', value: item.mas }));
             console.log(index)
             handleEmptySlot(index)
 
         }else{
-              console.log('mana')
+            //console.log('mana')
             //console.log(selectedCharacter)
             dispatch(modifyAttribute({ attribute: 'mana', value: item.mas }));
             handleEmptySlot(index)
@@ -52,8 +61,7 @@ const InventoryComponent = ({ drop }) => {
    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       if (item.Posicion === 'body') {
-        //console.log('test body')
-        //console.log(item)
+        
         dispatch(modifyAttribute({ attribute: 'defense', value: item.mas}));
         dispatch(equipItem({item}))
         handleEmptySlot(index)
@@ -98,7 +106,6 @@ const InventoryComponent = ({ drop }) => {
 
   
 
-
  return (
   <div className="inventory-container">
     <div className="inventory-card">
@@ -106,7 +113,16 @@ const InventoryComponent = ({ drop }) => {
       <div className="inventory-grid">
         {inventory.map((item, index) => (
           <div key={index} className="inventory-slot">
-            <button onClick={()=>handleEquipItem(item, index)} className='span'>{item && item.Nombre ? item.Nombre : 'Vacío'}</button>
+            <button onClick={()=>handleEquipItem(item, index)} className='span'>
+                  {/* {item && item.Nombre? item.Nombre : 'Vacío'} */}
+              {item && item.image ? (
+                <img src={item.image} alt={item.Nombre} style={{ width: '50px', height: '50px' }} />
+              ) : ( 
+               
+                item && item.Nombre?  <p>{item.Nombre}</p>:<p>'Vacío'</p> )
+               
+               }
+            </button>
             {/* <button onClick={() => handleEmptySlot(`slot${index + 1}`)}>Eliminar Objeto</button> */}
           </div>
         ))}
@@ -118,3 +134,30 @@ const InventoryComponent = ({ drop }) => {
 }
 
 export default InventoryComponent;
+
+
+// return (
+//   <div className="inventory-container">
+//     <div className="inventory-card">
+//       <h2>Inventario</h2>
+//       <div className="inventory-grid">
+//         {inventory.map((item, index) => (
+//           <div key={index} className="inventory-slot">
+//             <button onClick={() => handleEquipItem(item, index)} className='span'>
+//               {item && item.img ? (
+//                 <img src={item.image.img} alt={item.Nombre} style={{ width: '50px', height: '50px' }} />
+//               ) : (
+//                 'Vacío'
+//               )}
+//             </button>
+//             {/* <button onClick={() => handleEmptySlot(`slot${index + 1}`)}>Eliminar Objeto</button> */}
+//           </div>
+//         ))}
+//       </div>
+//       <button onClick={handleClearInventory}>Clear</button>
+//     </div>
+//   </div>
+// );
+// };
+
+// export default InventoryComponent;

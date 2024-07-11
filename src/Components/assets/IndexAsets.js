@@ -1,0 +1,1 @@
+export { default as potiImages } from './pots/Poti';

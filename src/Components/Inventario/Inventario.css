@@ -29,19 +29,19 @@
   }
   
   .inventory-slot .span {
-    border: 2px solid #5f270a;
-    border-radius: 4px;
-    background-color: #7b532ed7;
-    height: 55px;
-    width: 80px;
+    border: 2px solid #2e2944;
+    border-radius: 15px;
+    background-color: #76797cd7;
+    height: 65px;
+    width: 65px;
   }
 
     
   .inventory-slot .span:hover {
-    border: 2px solid #86370f;
-    border-radius: 4px;
-    background-color: #8c511ad7;
-    height: 55px;
-    width: 80px;
+    border: 2px solid  #2e2944;
+    border-radius: 15px;
+    background-color: #9d9fa1d7;
+    height: 70px;
+    width: 70px;
     cursor: pointer;
   }

@@ -1,3 +1,13 @@
+import { potiImages } from "../assets/IndexAsets";
+
+const findImageByName = (Nombre) => {
+ //console.log('test')
+ let img = potiImages.find(image => image.Nombre === Nombre) 
+      //console.log(img.img)
+ 
+  return img.img;
+};
+
 const Mobs = {
   Dungeon1: [
     {
@@ -12,6 +22,7 @@ const Mobs = {
         Nombre:'Pocion C',
         Posicion:'salud',
         mas:50,
+        image: findImageByName('Pocion C')
       },
     },
     {
@@ -51,9 +62,10 @@ const Mobs = {
       defense: 35,
       drop:{
         tipo:'Consumible',
-        Nombre:'Pocion Mana C',
+        Nombre:'Pocion mana C',
         Posicion:'mana',
         mas:50,
+        image: findImageByName('Pocion mana C')
       },
     },
     {
